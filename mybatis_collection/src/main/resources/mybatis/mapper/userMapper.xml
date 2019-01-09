@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tiny.learn_mybatis.dao.UserDao" >
+
+    <sql id="Base_Column_List" >
+        user.id,user.emp_no as empNo,user.name as name,education_exp_no as educationExpNo,
+        school,degree,from_end_time as fromEndTime
+    </sql>
+
+    <resultMap id="UserResultMap" type="com.tiny.learn_mybatis.entity.User" >
+        <!-- ofType指定educationExpList集合中的对象类型 -->
+        <collection property="educationExpList" ofType="com.tiny.learn_mybatis.entity.EducationExp">
+        </collection>
+    </resultMap>
+
+    <select id="selectOne" resultMap="UserResultMap" >
+       SELECT
+       <include refid="Base_Column_List" />
+	   FROM user left  join education_exp as edu on edu.emp_no = user.emp_no
+        where user.emp_no =#{empNo}
+    </select>
+
+
+
+
+
+
+</mapper>

@@ -1,0 +1,12 @@
+package com.brs.dbschema.clock.controller;
+
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/clock/clock-record")
+public class ClockRecordController {
+
+}
