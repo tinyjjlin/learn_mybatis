@@ -1,0 +1,4 @@
+com\brs\idm\api\IdmIdentityService.class
+com\brs\idm\api\Role.class
+com\brs\idm\api\Privilege.class
+com\brs\idm\api\User.class

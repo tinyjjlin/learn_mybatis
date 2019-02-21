@@ -1,0 +1,9 @@
+com\brs\idm\service\impl\IdmIdentityServiceImpl.class
+com\brs\idm\service\impl\UserServiceImpl.class
+com\brs\idm\service\AbstractIdmService.class
+com\brs\idm\service\UserService.class
+com\brs\idm\service\impl\PrivilegeServiceImpl.class
+com\brs\idm\service\impl\RoleServiceImpl.class
+com\brs\idm\service\RoleService.class
+com\brs\idm\model\UserInformation.class
+com\brs\idm\service\PrivliegeService.class

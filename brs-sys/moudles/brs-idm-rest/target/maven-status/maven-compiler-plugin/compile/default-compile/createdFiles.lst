@@ -1,0 +1,3 @@
+com\brs\idm\rest\conf\Swagger2Config.class
+com\brs\idm\rest\WebApplication.class
+com\brs\idm\rest\api\user\UserController.class

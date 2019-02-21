@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-idm-ad" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-order-logic" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-order-persistence" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/brs-order-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/moudles/brs-idm-ad-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/moudles/brs-idm-ad-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/moudles/brs-idm-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/moudles/brs-idm-logic" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/moudles/brs-idm-redis-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/moudles/brs-idm-repository" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/moudles/brs-idm-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/moudles/brs-sys-common" charset="UTF-8" />
+  </component>
+</project>

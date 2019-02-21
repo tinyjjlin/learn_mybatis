@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brs.idm.persistence.dao.UserDao">
+    <!--
+    @Insert("insert into brs_idm_user (id_,first_,last_,display_name_,pwd_,email_,picture_id_)"+
+    "values(#{user.id},#{user.firstName},#{user.lastName},#{user.displayName},#{user.pwd},#{user.email},#{user.pictureId})")
+     -->
+    <insert id="insertUser">
+        insert into brs_idm_user
+         (id_,first_,last_,display_name_,pwd_,email_,picture_id_,type_)
+          values(#{user.userId},#{user.firstName},#{user.lastName},#{user.fullName},#{user.pwd},#{user.email},#{user.pictureId},#{user.userType})
+    </insert>
+
+    <sql id="select-loginUserInfo">
+        brs_idm_user.id_ as userId,
+        brs_idm_user.first_ as firstName,
+        brs_idm_user.last_ as lastName,
+        brs_idm_user.display_name_ as fullName,
+        brs_idm_user.email_ as email,
+        brs_idm_user.picture_id_ as pictureId,
+        brs_idm_user.type_ as userType,
+        brs_idm_role.id_ as roleId,
+        brs_idm_role.name_ as roleName,
+        brs_idm_role.type_ as roleType
+    </sql>
+    <sql id="where-loginUserInfo">
+        <trim prefix="WHERE" suffixOverrides="AND | OR">
+            <if test="userId !=null"> brs_idm_user.id_ = #{userId} </if>
+        </trim>
+    </sql>
+    <resultMap id="loginUserInfoMap" type="com.brs.idm.api.dto.LoginUserInfoRepresentation">
+        <association property="user" javaType="com.brs.idm.persistence.entity.UserEntity" autoMapping="true">
+            <id property="userId" column="userId"></id>
+        </association>
+       <collection property="roles" ofType="com.brs.idm.persistence.entity.RoleEntity" autoMapping="true">
+           <id property="roleId" column="roleId"></id>
+       </collection>
+    </resultMap>
+    <select id="selectLoginUserInfo" resultMap="loginUserInfoMap">
+      SELECT
+        <include refid="select-loginUserInfo"></include>
+      FROM
+        brs_idm_user
+      LEFT JOIN
+        brs_idm_membership AS bim
+      ON
+        brs_idm_user.id_ = bim.user_id_
+      LEFT JOIN
+         brs_idm_role
+      ON
+          bim.role_id_ = brs_idm_role.id_
+      <include refid="where-loginUserInfo"></include>
+    </select>
+    <select id="selectUserAll" resultType="com.brs.idm.api.dto.LoginUserRepresentation">
+        SELECT
+          brs_idm_user.id_ as userId,
+          brs_idm_user.first_ as firstName,
+          brs_idm_user.last_ as lastName,
+          brs_idm_user.display_name_ as fullName,
+          brs_idm_user.email_ as email,
+          brs_idm_user.picture_id_ as pictureId,
+          brs_idm_user.type_ as userType
+        FROM
+          brs_idm_user
+    </select>
+
+
+</mapper>
